@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <title>Picture Game</title>
+
+    <script>
+    var score = 0;
+    var picCount = 0;
+    var answer = 0;
+    var allquestions = '';
+
+    function playagain()
+    {
+      document.getElementById("end").innerHTML = "";
+      document.getElementById("allquestions").innerHTML = "";
+      document.getElementById("playagain").style.visibility ="hidden";
+      document.getElementById("pic").style.visibility ="visible"
+      document.getElementById("pic").src = "Brazil.jpg"
+      document.getElementById("pic").style.width ="500px"
+      document.getElementById("pic").style.height ="300px"
+
+      score = 0;
+      picCount = 0;
+      answer = 0;
+      allquestions = '';
+
+    }
+
+    function picgame()
+    {
+      picCount = picCount + 1
+      answer = document.getElementById("answer").value;
+
+
+      if(picCount == 1)
+      {
+        if(answer == "Brazil")
+        {
+           score = score + 1;
+        }
+        allquestions = allquestions + "Answer : Brazil &nbsp;&nbsp;&nbsp; Your answer : " + answer + "<br>";
+        document.getElementById("pic").src = "france.jpg"
+        document.getElementById("answer").value = '';
+     }
+
+    if(picCount == 2)
+     {
+      if(answer == "France")
+      {
+        score = score + 1;
+      }
+      allquestions = allquestions  + "Answer : France &nbsp;&nbsp;&nbsp; Your answer : " + answer + "<br>";
+      document.getElementById("pic").src = "Germany.jpg"
+      document.getElementById("answer").value = '';
+     }
+
+     if(picCount == 3)
+     {
+       if(answer == "Germany")
+       {
+         score = score + 1;
+       }
+       allquestions = allquestions  + "Answer : Germany &nbsp;&nbsp;&nbsp; Your answer : " + answer + "<br>";
+       document.getElementById("pic").src = "UK.jpg"
+       document.getElementById("answer").value = '';
+      }
+
+      if(picCount == 4)
+      {
+        if(answer == "UK")
+        {
+          score = score + 1;
+        }
+        allquestions = allquestions  + "Answer : UK &nbsp;&nbsp;&nbsp; Your answer : " + answer + "<br>";
+        document.getElementById("pic").src = "Greece.jpg"
+        document.getElementById("answer").value = '';
+       }
+       end();
+    }
+    function end()
+    {
+         if( picCount == 5)
+         {
+          if(answer == "Greece")
+          {
+             score = score + 1;
+          }
+          allquestions = allquestions  + "Answer : Greece &nbsp;&nbsp;&nbsp; Your answer : " + answer + "<br>";
+          document.getElementById("playagain").style.visibility ="visible"
+          document.getElementById("pic").style.visibility ="hidden"
+          document.getElementById("pic").style.width ="0px"
+          document.getElementById("pic").style.height ="0px"
+          document.getElementById("end").innerHTML ="You Scored a " + score + "/" + picCount + "<br><br>";
+          document.getElementById("allquestions").innerHTML = allquestions;
+         }
+    }
+   </script>
+  </head>
+
+   <style>
+    Body{
+      background-color: lightpink;
+    }
+    img{
+      width: 500px;
+      height: 300px;
+      border: 7px solid navy;
+      border-style: double;
+      border-radius: 7px;
+      }
+
+      h2{
+        font-size: 40px;
+        font-family: fantasy;
+        color: navy;
+      }
+
+     input{
+       border-radius: 8px;
+       font-size:20px;
+       font-family: fantasy;
+       background-color: white;
+       color: lightpink;
+       border: 5px solid navy;
+       border-style: double;
+       border-radius: 7px;
+      }
+
+      input:hover{
+        background-color: navy;
+      }
+
+   </style>
+
+  <body>
+    <center>
+    <h2 id = "title">Guess The Flags!</h2><hr>
+    <b><span id = "end" style="font-size:30px;font-family:fantasy;color:navy;"></span></b>
+    <span id = "allquestions" style="font-size:25px;font-family:fantasy;color:navy;"></span>
+    <br>
+    <span><img id= "pic" class = "img" src="Brazil.jpg"></span><br><br>
+    <input type = "text" id = "answer" class = "txtbox">
+    <input id = "button" type = "button" value = "Next Picture" onclick= "picgame()">
+    <input id = "playagain" type = "button" value = "Play Again" style="visibility:hidden" onclick = "playagain()">
+    </center>
+  </body>
+</html>
